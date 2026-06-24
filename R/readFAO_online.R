@@ -37,7 +37,7 @@
 #' \item `Trade`: Trade quantities and values
 #' }
 #' @return FAO data as MAgPIE object
-#' @author Ulrich Kreidenweis, Abhijeet Mishra, Mishko Stevanovic, David Klein, Edna Molina Bacca
+#' @author Ulrich Kreidenweis, Abhijeet Mishra, Mishko Stevanovic, David Klein, Edna Molina Bacca, Bin Lin
 #' @seealso [readSource()]
 #' @examples
 #' \dontrun{
@@ -92,14 +92,15 @@ readFAO_online <- function(subtype) { # nolint
     # old source file: Resources_Land_E_All_Data.zip
     Land                    = c("Resources_Land_E_All_Data.zip",
                                 "Inputs_LandUse_E_All_Data_(Normalized)_140825downloaded.zip"),
-    LiveHead                = c("Production_Livestock_E_All_Data.zip"),
-    LivePrim                = c("Production_LivestockPrimary_E_All_Data.zip"),
-    LiveProc                = c("Production_LivestockProcessed_E_All_Data.zip"),
+    # LiveHead/LivePrim/LiveProc were merged into Production_Crops_Livestock in 2024
+    LiveHead                = c("Production_Crops_Livestock_E_All_Data_(Normalized).zip"),
+    LivePrim                = c("Production_Crops_Livestock_E_All_Data_(Normalized).zip"),
+    LiveProc                = c("Production_Crops_Livestock_E_All_Data_(Normalized).zip"),
     Pop                     = c("Population_E_All_Data.zip"),
-    PricesProducerAnnual    = c("Prices_E_All_Data_(Normalized)_130225.zip"),
+    PricesProducerAnnual    = c("Prices_E_All_Data_(Normalized).zip"),
     PricesProducerAnnualLCU = c("Prices_E_All_Data.zip"),
     Trade                   = c("Trade_CropsLivestock_E_All_Data_(Normalized).zip"),
-    ValueOfProd             = c("Value_of_Production_E_All_Data_(Normalized)_250203.zip"),
+    ValueOfProd             = c("Value_of_Production_E_All_Data_(Normalized).zip"),
     ValueShares             = c("Value_shares_industry_primary_factors_E_All_Data_(Normalized).zip")
   )
 
@@ -139,6 +140,17 @@ readFAO_online <- function(subtype) { # nolint
                warning = stop)
       file <- file.path(tempfolder, csvName)
       break
+    } else if (extension == "zip") {
+      # FAO downloads now include a date stamp (e.g. _251231) in the filename.
+      # Search for a matching file with an optional date stamp suffix.
+      stamped <- Sys.glob(paste0(file_path_sans_ext(file), "_[0-9][0-9][0-9][0-9][0-9][0-9].zip"))
+      if (length(stamped) > 0) {
+        stamped <- sort(stamped, decreasing = TRUE)[1]  # use most recent
+        tempfolder <- local_tempdir()
+        tryCatch(unzip(stamped, exdir = tempfolder), warning = stop)
+        file <- file.path(tempfolder, csvName)
+        break
+      }
     }
   }
 
