@@ -60,10 +60,14 @@ downloadFAO_online <- function(subtype) { # nolint: object_name_linter.
     ForestProdTrade         = "Forestry_E_All_Data_(Normalized).zip",
     ForestProdTradeBilat    = "Forestry_Trade_Flows_E_All_Data_(Normalized).zip",
     Land                    = "Inputs_LandUse_E_All_Data_(Normalized).zip",
-    # LiveHead/LivePrim/LiveProc were merged into Production_Crops_Livestock in 2024
-    LiveHead                = "Production_Crops_Livestock_E_All_Data_(Normalized).zip",
-    LivePrim                = "Production_Crops_Livestock_E_All_Data_(Normalized).zip",
-    LiveProc                = "Production_Crops_Livestock_E_All_Data_(Normalized).zip",
+    LiveHead                = "Production_Livestock_E_All_Data_(Normalized).zip",
+    LivePrim                = "Production_LivestockPrimary_E_All_Data_(Normalized).zip",
+    LiveProc                = "Production_LivestockProcessed_E_All_Data_(Normalized).zip",
+    # FAO merged LiveHead/LivePrim/LiveProc into Production_Crops_Livestock in 2024;
+    # use LiveHead2024/LivePrim2024/LiveProc2024 for the new format
+    LiveHead2024            = "Production_Crops_Livestock_E_All_Data_(Normalized).zip",
+    LivePrim2024            = "Production_Crops_Livestock_E_All_Data_(Normalized).zip",
+    LiveProc2024            = "Production_Crops_Livestock_E_All_Data_(Normalized).zip",
     Pop                     = "Population_E_All_Data_(Normalized).zip",
     PricesProducerAnnual    = "Prices_E_All_Data_(Normalized).zip",
     PricesProducerAnnualLCU = "Prices_E_All_Data_(Normalized).zip",

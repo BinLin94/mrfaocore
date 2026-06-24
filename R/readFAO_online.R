@@ -92,10 +92,14 @@ readFAO_online <- function(subtype) { # nolint
     # old source file: Resources_Land_E_All_Data.zip
     Land                    = c("Resources_Land_E_All_Data.zip",
                                 "Inputs_LandUse_E_All_Data_(Normalized)_140825downloaded.zip"),
-    # LiveHead/LivePrim/LiveProc were merged into Production_Crops_Livestock in 2024
-    LiveHead                = c("Production_Crops_Livestock_E_All_Data_(Normalized).zip"),
-    LivePrim                = c("Production_Crops_Livestock_E_All_Data_(Normalized).zip"),
-    LiveProc                = c("Production_Crops_Livestock_E_All_Data_(Normalized).zip"),
+    LiveHead                = c("Production_Livestock_E_All_Data.zip"),
+    LivePrim                = c("Production_LivestockPrimary_E_All_Data.zip"),
+    LiveProc                = c("Production_LivestockProcessed_E_All_Data.zip"),
+    # FAO merged LiveHead/LivePrim/LiveProc into Production_Crops_Livestock in 2024;
+    # use LiveHead2024/LivePrim2024/LiveProc2024 for the new format
+    LiveHead2024            = c("Production_Crops_Livestock_E_All_Data_(Normalized).zip"),
+    LivePrim2024            = c("Production_Crops_Livestock_E_All_Data_(Normalized).zip"),
+    LiveProc2024            = c("Production_Crops_Livestock_E_All_Data_(Normalized).zip"),
     Pop                     = c("Population_E_All_Data.zip"),
     PricesProducerAnnual    = c("Prices_E_All_Data_(Normalized).zip"),
     PricesProducerAnnualLCU = c("Prices_E_All_Data.zip"),
