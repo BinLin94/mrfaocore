@@ -135,23 +135,23 @@ readFAO_online <- function(subtype) { # nolint
     if (file.exists(csvName)) {
       file <- csvName
       break
-    } else if (extension == "zip" && file.exists(file)) {
-      tempfolder <- local_tempdir()
-      tryCatch(
-               {
-                 unzip(file, exdir = tempfolder)
-               },
-               warning = stop)
-      file <- file.path(tempfolder, csvName)
-      break
     } else if (extension == "zip") {
-      # FAO downloads now include a date stamp (e.g. _251231) in the filename.
-      # Search for a matching file with an optional date stamp suffix.
+      # Prefer the most recent date-stamped file (e.g. _260209.zip) over
+      # the non-date-stamped version, since FAO updates replace content.
       stamped <- Sys.glob(paste0(file_path_sans_ext(file), "_[0-9][0-9][0-9][0-9][0-9][0-9].zip"))
       if (length(stamped) > 0) {
         stamped <- sort(stamped, decreasing = TRUE)[1]  # use most recent
         tempfolder <- local_tempdir()
         tryCatch(unzip(stamped, exdir = tempfolder), warning = stop)
+        file <- file.path(tempfolder, csvName)
+        break
+      } else if (file.exists(file)) {
+        tempfolder <- local_tempdir()
+        tryCatch(
+                 {
+                   unzip(file, exdir = tempfolder)
+                 },
+                 warning = stop)
         file <- file.path(tempfolder, csvName)
         break
       }
