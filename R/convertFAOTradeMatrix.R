@@ -173,17 +173,9 @@ convertFAOTradeMatrix <- function(x, subtype) { # nolint
   # currency convert values
   if (subtype %in% c("import_value_kcr", "import_value_kli", "import_value_kothers", "import_value_kforestry",
                      "export_value_kcr", "export_value_kli", "export_value_kothers", "export_value_kforestry")) {
-    # toolConvertGDP melts its input into a long data frame with one row per reporter x partner x
-    # year x item, which is expensice for a bilateral object. Only get the per country factor and
-    # apply it.
-    cf <- new.magpie(getItems(out, dim = 1.1), getYears(out), fill = 1)
-    getSets(cf)[1] <- "ISO"
-    cf <- toolConvertGDP(cf, unit_in = "current US$MER",
-                         unit_out = "constant 2017 US$MER",
-                         replace_NAs = "no_conversion")
-    # "no_conversion" leaves countries without a conversion factor unscaled, i.e. at a factor of 1
-    cf[is.na(cf)] <- 1
-    out <- out * collapseDim(cf, dim = 3)
+    out <- toolConvertGDP(out, unit_in = "current US$MER",
+                          unit_out = "constant 2017 US$MER",
+                          replace_NAs = "no_conversion")
   }
 
   out <- magpiesort(out)
