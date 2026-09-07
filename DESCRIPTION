@@ -9,7 +9,7 @@ Authors@R: c(
     person("Ulrich", "Kreidenweis", role = "aut"),
     person("Abhijeet", "Mishra", role = "aut"),
     person("Kristine", "Karstens", role = "aut"),
-    person("Benjamin", "Leon Bodirsky", role = "aut"),
+    person("Benjamin Leon", "Bodirsky", role = "aut"),
     person("Debbora", "Leip", role = "aut"),
     person("Mishko", "Stevanovic", role = "aut"),
     person("Benjamin", "Leon Bodrisky", role = "aut"),
