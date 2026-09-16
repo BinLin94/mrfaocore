@@ -57,5 +57,5 @@ a <- readSource("FAO_online", "Crop")
 [readSource()]
 }
 \author{
-Ulrich Kreidenweis, Abhijeet Mishra, Mishko Stevanovic, David Klein, Edna Molina Bacca
+Ulrich Kreidenweis, Abhijeet Mishra, Mishko Stevanovic, David Klein, Edna Molina Bacca, Bin Lin
 }
