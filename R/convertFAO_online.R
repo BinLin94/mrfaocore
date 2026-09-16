@@ -57,7 +57,10 @@ convertFAO_online <- function(x, subtype) { # nolint: cyclocomp_linter, object_n
                                         "Yield_(100_g/An)",                  # new FAO data
                                         "Yield_Carcass_Weight_(100_g/An)",   # new FAO data
                                         "Yield_Carcass_Weight_(0_1_g/An)", # new FAO data
-                                        "Yield_(100_g)")                     # new FAO data
+                                        "Yield_(100_g)",                     # new FAO data
+                                        "Yield_(kg/ha)",
+                                        "Yield_Carcass_Weight_(g/An)",
+                                        "Yield_Carcass_Weight_(kg/An)")
   # LiveHead2024/LivePrim2024/LiveProc2024 read the same merged file as CropLive2010
   relativeDelete[["LiveHead2024"]] <- relativeDelete[["CropLive2010"]]
   relativeDelete[["LivePrim2024"]] <- relativeDelete[["CropLive2010"]]
