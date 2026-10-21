@@ -89,7 +89,7 @@ downloadFAO_online <- function(subtype) { # nolint: object_name_linter.
   # extract the data set for the selected subtype by searching for the file name
   faoMeta <- faoMeta[grepl(pattern = file, faoMeta$FileLocation, fixed = TRUE), ]
   if (nrow(faoMeta) > 1) {
-    faoMeta <- faoMeta[which.max(as.character(faoMeta$DateUpdate)), , drop = FALSE]
+    faoMeta <- faoMeta[order(as.character(faoMeta$DateUpdate), decreasing = TRUE)[1], , drop = FALSE]
   }
   if (nrow(faoMeta) == 0) stop("No FAO metadata entry found for file: ", file)
 
