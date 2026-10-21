@@ -39,7 +39,7 @@ In case of questions / problems please contact David Chen <david.chen@pik-potsda
 
 To cite package **mrfaocore** in publications use:
 
-Chen D, Kreidenweis U, Mishra A, Karstens K, Bodirsky B, Leip D, Stevanovic M, Leon Bodrisky B, Klein D, Molina Bacca E (2026). "mrfaocore: madrat-based package providing core FAO-related preprocessing functions." Version: 1.10.0, <https://github.com/pik-piam/mrfaocore>.
+Chen D, Kreidenweis U, Mishra A, Karstens K, Bodirsky B, Leip D, Stevanovic M, Leon Bodrisky B, Klein D, Molina Bacca E, Lin B (2026). "mrfaocore: madrat-based package providing core FAO-related preprocessing functions." Version: 1.10.0, <https://github.com/pik-piam/mrfaocore>.
 
 A BibTeX entry for LaTeX users is
 
@@ -47,7 +47,7 @@ A BibTeX entry for LaTeX users is
 @Misc{,
   title = {mrfaocore: madrat-based package providing core FAO-related preprocessing
     functions},
-  author = {David Chen and Ulrich Kreidenweis and Abhijeet Mishra and Kristine Karstens and Benjamin Leon Bodirsky and Debbora Leip and Mishko Stevanovic and Benjamin {Leon Bodrisky} and David Klein and Edna {Molina Bacca}},
+  author = {David Chen and Ulrich Kreidenweis and Abhijeet Mishra and Kristine Karstens and Benjamin Leon Bodirsky and Debbora Leip and Mishko Stevanovic and Benjamin {Leon Bodrisky} and David Klein and Edna {Molina Bacca} and Bin Lin},
   date = {2026-10-21},
   year = {2026},
   url = {https://github.com/pik-piam/mrfaocore},

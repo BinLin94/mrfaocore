@@ -14,7 +14,8 @@ Authors@R: c(
     person("Mishko", "Stevanovic", role = "aut"),
     person("Benjamin", "Leon Bodrisky", role = "aut"),
     person("David", "Klein", role = "aut"),
-    person("Edna", "Molina Bacca", role = "aut")
+    person("Edna", "Molina Bacca", role = "aut"),
+    person("Bin", "Lin", role = "aut")
   )
 Description: This madrat-based package provides core FAO-related
     preprocessing functions.
