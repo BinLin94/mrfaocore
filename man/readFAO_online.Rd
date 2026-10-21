@@ -29,6 +29,9 @@ Production-Crops. These datasets have been added together to a "Fodder.csv" file
 \item `LiveHead`: Production Live Animals ("Production_Livestock_E_All_Data.zip")
 \item `LivePrim`: Production Livestock Primary ("Production_LivestockPrimary_E_All_Data.zip")
 \item `LiveProc`: Production Livestock Processed ("Production_LivestockProcessed_E_All_Data.zip")
+  `LiveHead`, `LivePrim` and `LiveProc` are deprecated: FAOSTAT discontinued these files and
+  their data end in 2019. They are kept so that existing code keeps working; use
+  `LiveHead2024`, `LivePrim2024` and `LiveProc2024` instead.
 \item `LiveHead2024`, `LivePrim2024`, `LiveProc2024`: livestock data from Production: Crops and
   livestock products (QCL, "Production_Crops_Livestock_E_All_Data_(Normalized)_251231.zip")
 \item `Pop`: Population ("Population_E_All_Data.zip")
