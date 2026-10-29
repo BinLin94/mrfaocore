@@ -61,8 +61,8 @@ convertFAO_online <- function(x, subtype) { # nolint: cyclocomp_linter, object_n
                                         "Yield_(kg/ha)",
                                         "Yield_Carcass_Weight_(g/An)",
                                         "Yield_Carcass_Weight_(kg/An)")
-  # LiveHead2024 reads the same FAOSTAT QCL dataset as CropLive2010
-  relativeDelete[["LiveHead2024"]] <- relativeDelete[["CropLive2010"]]
+  # CropLive is the same FAOSTAT QCL dataset as CropLive2010, pinned to a release
+  relativeDelete[["CropLive"]] <- relativeDelete[["CropLive2010"]]
   relativeDelete[["Land"]] <- c("Share_in_Land_area_(%)",
                                 "Value_of_agricultural_production_(Int_$)_per_Area_(USD_PPP/ha)",
                                 "Share_in_Agricultural_land_(%)",

@@ -63,10 +63,10 @@ downloadFAO_online <- function(subtype) { # nolint: object_name_linter.
     LiveHead                = "Production_Livestock_E_All_Data_(Normalized).zip",
     LivePrim                = "Production_LivestockPrimary_E_All_Data_(Normalized).zip",
     LiveProc                = "Production_LivestockProcessed_E_All_Data_(Normalized).zip",
-    # FAOSTAT QCL (Production: Crops and livestock products), which carries the livestock
-    # data that LiveHead/LivePrim/LiveProc read from FAO's discontinued separate files; one
-    # dataset, so one subtype
-    LiveHead2024            = "Production_Crops_Livestock_E_All_Data_(Normalized).zip",
+    # FAOSTAT QCL (Production: Crops and livestock products): FAO merged its separate crop
+    # and livestock files into this one, so Crop/LiveHead/LivePrim/LiveProc are replaced by
+    # this single subtype
+    CropLive                = "Production_Crops_Livestock_E_All_Data_(Normalized).zip",
     Pop                     = "Population_E_All_Data_(Normalized).zip",
     PricesProducerAnnual    = "Prices_E_All_Data_(Normalized).zip",
     PricesProducerAnnualLCU = "Prices_E_All_Data_(Normalized).zip",
