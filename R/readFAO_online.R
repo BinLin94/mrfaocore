@@ -135,11 +135,13 @@ readFAO_online <- function(subtype) { # nolint
 
   # look for data in normalized (i.e. long) format first before looking for the wide format
   # decompress if it is zipped
+  found <- FALSE
   for (file in tryFiles) {
     extension <- file_ext(basename(file))
     csvName <- paste0(file_path_sans_ext(file), ".csv")
     if (file.exists(csvName)) {
       file <- csvName
+      found <- TRUE
       break
     } else if (extension == "zip" && file.exists(file)) {
       tempfolder <- local_tempdir()
@@ -149,8 +151,20 @@ readFAO_online <- function(subtype) { # nolint
                },
                warning = stop)
       file <- file.path(tempfolder, csvName)
+      found <- TRUE
       break
     }
+  }
+
+  # without this the loop leaves a file name that does not exist and read.table() fails with
+  # a bare "cannot open file", which says nothing about the missing source
+  if (!found) {
+    stop("No source file of subtype \"", subtype, "\" found in ",
+         normalizePath(".", winslash = "/"), ". Expected one of: ",
+         paste(tryFiles, collapse = ", "),
+         ". Run madrat::downloadSource(\"FAO_online\", \"", subtype, "\") on a machine with ",
+         "internet access (cluster compute nodes have none), or update the pinned file name ",
+         "in readFAO_online() if FAO has published a newer release.")
   }
 
   if (grepl("_[0-9]{6}(?=\\.[a-zA-Z0-9]+$)", file, perl = TRUE)) {
